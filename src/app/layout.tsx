@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { PizzaProvider } from "@/contexts/PizzaContext";
 import Header from "@/components/header";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,7 +20,9 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        {children}
+        <PizzaProvider>
+          {children}
+        </PizzaProvider>
       </body>
     </html>
   );
